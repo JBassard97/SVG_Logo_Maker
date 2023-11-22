@@ -6,19 +6,23 @@ const { Circle, Square, Triangle } = require("./lib/shapes");
 const { cssColorKeywords } = require("./lib/CSScolorKeywords");
 // Importing inquirer
 const inquirer = require("inquirer");
-const { empty } = require("rxjs");
-
-myCirc = new Circle("Hi", "Pink", "Circle");
-// console.log(myCirc.render());
+const { generateSVG } = require("./lib/generateSVG");
 
 console.log(
   `Welcome to the ${colors.RainbowText("SVG_Logo_Generator")}\n`,
-  "You will be asked for the shape to be used, the color of the shape, and the text to be centered within!"
+  `You will be asked for the ${colors.BrightRedText(
+    "shape"
+  )} to be used, the ${colors.BrightBlueText(
+    "color"
+  )} of the shape, the ${colors.BrightYellowText(
+    "text color"
+  )}, and the ${colors.BrightGreenText("text")} to be centered within!`
 );
 
 const emptyObject = {};
 
 inquirer
+  // SHAPE
   .prompt([
     {
       type: "list",
@@ -30,11 +34,11 @@ inquirer
   .then((answer) => {
     console.log(`You selected a ${colors.BrightCyanText(answer.shapeName)}! `);
     emptyObject.shapeName = answer.shapeName;
-
+    // SHAPE COLOR
     return inquirer.prompt([
       {
         type: "input",
-        message: `What's the logo's color? ${colors.RedText(
+        message: `What is the shape's color? ${colors.RedText(
           "color keyword or Hex code starting with #)"
         )} `,
         name: "color",
@@ -43,25 +47,65 @@ inquirer
   })
   .then((answer) => {
     if (cssColorKeywords.includes(answer.color.toLowerCase())) {
-      console.log(`You chose ${answer.color}, that's a valid keyword!`);
+      console.log(
+        `You chose ${answer.color}, that's a ${colors.BrightGreenText(
+          "valid"
+        )} keyword!`
+      );
       emptyObject.color = answer.color;
     } else if (
       answer.color.startsWith("#") &&
       (answer.color.length == 7 || answer.color.length == 4)
     ) {
       console.log(
-        `You entered ${answer.color}, that's a valid hexadecimal code!`
+        `You entered ${answer.color}, that's a ${colors.BrightGreenText(
+          "valid"
+        )} hexadecimal code!`
       );
       emptyObject.color = answer.color;
     } else {
       throw new Error("Input a valid color keyword or hexadecimal ONLY");
     }
-
+    // TEXT COLOR
+    return inquirer.prompt([
+      {
+        type: "input",
+        message: `What's the logo's text color? ${colors.RedText(
+          "color keyword or Hex code starting with #)"
+        )} `,
+        name: "textColor",
+      },
+    ]);
+  })
+  .then((answer) => {
+    if (cssColorKeywords.includes(answer.textColor.toLowerCase())) {
+      console.log(
+        `You chose ${answer.textColor}, that's a ${colors.BrightGreenText(
+          "valid"
+        )} keyword!`
+      );
+      emptyObject.textColor = answer.textColor;
+    } else if (
+      answer.textColor.startsWith("#") &&
+      (answer.textColor.length == 7 || answer.textColor.length == 4)
+    ) {
+      console.log(
+        `You entered ${answer.textColorolor}, that's a ${colors.BrightGreenText(
+          "valid"
+        )} hexadecimal code!`
+      );
+      emptyObject.textColor = answer.textColor;
+    } else {
+      throw new Error("Input a valid color keyword or hexadecimal ONLY");
+    }
+    // TEXT
     return inquirer
       .prompt([
         {
           type: "input",
-          message: "What text would you like in the center of your logo?",
+          message: `What text would you like in the center of your logo? ${colors.RedText(
+            "Input 3 characters AT MOST"
+          )}`,
           name: "text",
         },
       ])
@@ -70,12 +114,16 @@ inquirer
           console.log(
             "You've decided to not use text in your logo! That's OK..."
           );
+        } else if (answer.text.length > 3) {
+          throw new Error(
+            "Please keep your text to THREE (3) characters long!"
+          );
         } else {
           console.log(
-            `You've entered: ${answer.text}, which will be centered in your logo!`
+            `You've entered: ${answer.text.toUpperCase()}, which will be centered in your logo!`
           );
-          emptyObject.text = answer.text;
+          emptyObject.text = answer.text.toUpperCase();
+          generateSVG(emptyObject);
         }
-        console.log(emptyObject);
       });
   });
