@@ -1,1 +1,24 @@
-<!-- DESCRIPTION, DEMO VID, SETUP/USAGE INSTRUCTIONS -->
+# SVG_Logo_Maker
+
+## Table of Contents
+
+- [Title](#title)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+
+## Description
+
+    This repository contains the starter code for my svg logo maker! Simply follow through the prompts given and your 'logo.svg' is spawned within the folder titled 'output'. Provided as well are test suites for jest, and example files for each shape available!
+
+## Installation
+
+    You'll need to have Node.js installed on your machine to use the contents of this repo. You will also need to 'git clone' this repo to have it. Other than that, have a code-editor like VS-Code to work in.
+
+## Usage
+
+Link to project: https://github.com/JBassard97/SVG_Logo_Maker
+After cloning this repo, right-click on the 'index.js' file and select: 'Open in Integrated Terminal'. You'll then need to download this project's dependences, so enter: 'npm i'. You're now ready to run the application, simply enter: 'node index' to begin the line of questioning needed to build your own Logo!
+
+## Screenshots
