@@ -10,7 +10,7 @@
 
 ## Description
 
-    This repository contains the starter code for my svg logo maker! Simply follow through the prompts given and your 'logo.svg' is spawned within the folder titled 'output'. Provided as well are test suites for jest, and example files for each shape available!
+    This repository contains the starter code for my svg logo maker! Simply follow through the prompts given and your 'logo.svg' is spawned within the folder titled 'OUTPUT'. Provided as well are test suites for jest, and example files for each shape available! This project also serves as the debut of my first npm module: 'jbassard97nodecolors'! It works similarly to Inquirer's "chalk" method, but I've streamlined it's usage with intuitive naming and the ability to display rainbows on command.
 
 ## Installation
 
@@ -19,6 +19,6 @@
 ## Usage
 
 Link to project: https://github.com/JBassard97/SVG_Logo_Maker
-After cloning this repo, right-click on the 'index.js' file and select: 'Open in Integrated Terminal'. You'll then need to download this project's dependences, so enter: 'npm i'. You're now ready to run the application, simply enter: 'node index' to begin the line of questioning needed to build your own Logo!
+After cloning this repo, right-click on the 'index.js' file and select: 'Open in Integrated Terminal'. You'll then need to download this project's dependences (Inquirer, Jest, and 'jbassard97nodecolors'), so enter: 'npm i'. You're now ready to run the application, so simply enter: 'node index' to begin the line of questioning needed to build your own Logo!
 
 ## Screenshots

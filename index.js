@@ -46,7 +46,7 @@ inquirer
     ]);
   })
   .then((answer) => {
-    if (cssColorKeywords.includes(answer.color.toLowerCase())) {
+    if (cssColorKeywords.includes(answer.color.toLowerCase().trim())) {
       console.log(
         `You chose ${answer.color}, that's a ${colors.BrightGreenText(
           "valid"
@@ -62,7 +62,7 @@ inquirer
           "valid"
         )} hexadecimal code!`
       );
-      emptyObject.color = answer.color;
+      emptyObject.color = answer.color.trim();
     } else {
       throw new Error("Input a valid color keyword or hexadecimal ONLY");
     }
@@ -78,13 +78,13 @@ inquirer
     ]);
   })
   .then((answer) => {
-    if (cssColorKeywords.includes(answer.textColor.toLowerCase())) {
+    if (cssColorKeywords.includes(answer.textColor.toLowerCase().trim())) {
       console.log(
-        `You chose ${answer.textColor}, that's a ${colors.BrightGreenText(
+        `You chose ${answer.textColor.trim()}, that's a ${colors.BrightGreenText(
           "valid"
         )} keyword!`
       );
-      emptyObject.textColor = answer.textColor;
+      emptyObject.textColor = answer.textColor.trim();
     } else if (
       answer.textColor.startsWith("#") &&
       (answer.textColor.length == 7 || answer.textColor.length == 4)
@@ -111,9 +111,7 @@ inquirer
       ])
       .then((answer) => {
         if (!answer.text) {
-          console.log(
-            "You've decided to not use text in your logo! That's OK..."
-          );
+          throw new Error("You must put SOMETHING here!");
         } else if (answer.text.length > 3) {
           throw new Error(
             "Please keep your text to THREE (3) characters long!"
