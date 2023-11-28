@@ -1,6 +1,0 @@
-
-  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-<rect x="10" y="10" width="80" height="80" fill="yellow" />
-<text x="50" y="53" fill="purple" font-size="30" text-anchor="middle" alignment-baseline="middle">HI</text>
-  </svg>
-  
