@@ -22,7 +22,3 @@ Link to project: https://github.com/JBassard97/SVG_Logo_Maker
 After cloning this repo, right-click on the 'index.js' file and select: 'Open in Integrated Terminal'. You'll then need to download this project's dependences (Inquirer, Jest, and 'jbassard97nodecolors'), so enter: 'npm i'. You're now ready to run the application, so simply enter: 'node index' to begin the line of questioning needed to build your own Logo!
 
 ## Screenshots
-
-[svg_demo.webm](https://github.com/JBassard97/SVG_Logo_Maker/assets/142551579/26bacd93-c285-4af2-b0ff-59254c7da2b6)
-
-<img width="659" alt="REAL svg screenshot" src="https://github.com/JBassard97/SVG_Logo_Maker/assets/142551579/d77ec43a-2c6e-4e78-8bd0-4458bc3a3dbc">
